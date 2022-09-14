@@ -1,16 +1,15 @@
 {
-  "name": "nodejs",
+  "name": "ex_1",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "utils.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
     "jsonfile": "^6.1.0"
-  },
-  "description": ""
+  }
 }
