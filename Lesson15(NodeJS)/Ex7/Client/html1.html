@@ -1,0 +1,57 @@
+<html>
+
+<body onload="getData()">
+
+    <table border="1" id="carsTable">
+        <tr>
+            <th>id</th>
+            <th>model</th>
+        </tr>
+
+    </table>
+
+
+
+
+
+    <script>
+
+        async function getData() {
+            const response = await fetch("http://localhost:8000/cars")
+            console.log(response)
+
+            const data = await response.json()
+            console.log(data)
+
+
+            // get table element from DOM
+            const tableEl = document.getElementById("carsTable")
+            data.forEach(car => {
+                // create new row
+                const tr = document.createElement("tr") // 1. <tr> </tr
+
+                // create new table data (columns)
+                const tdId = document.createElement("td")  // 2. <td> </td>
+                const tdModel = document.createElement("td") // 3. <td> </td> 
+
+                // populate data with data from web service
+                tdId.innerText = car.id // 4. <td>1</td>
+                tdModel.innerText = car.model // 5. <td>"Mazda" </td>
+
+                //append tds to tr
+                tr.appendChild(tdId) // 6. <tr> <td>1</td> </tr
+                tr.appendChild(tdModel)  // 7.  <tr> <td>1</td> <td>"Mazda" </td>  </tr>
+
+
+                // append tr to table 
+                tableEl.appendChild(tr) // 8. <table>   <tr> <td>1</td> <td>"Mazda" </td>  </tr> </table
+
+
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>
