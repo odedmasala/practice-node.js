@@ -12,5 +12,5 @@ const movieRouter = require("./routes/moviesRouter");
 app.use("/movies", movieRouter);
 //  http://localhost:7000/movies
 app.listen(7000, () => {
-  console.log("server is listen");
+  console.log("server is listen ,http://localhost:7000/movies");
 });

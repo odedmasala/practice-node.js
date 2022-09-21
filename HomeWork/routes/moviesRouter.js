@@ -15,7 +15,7 @@ moviesBL;
 
 router.get("/:id", async (rep, res) => {
   try {
-    const { id } = rep.params.id;
+    const id  = rep.params.id;
     const movie = await moviesBL.getByIdMovie(id);
     res.status(200).json(movie);
   } catch (e) {
