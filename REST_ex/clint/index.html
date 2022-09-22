@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span>get fly data</span> <input id="airport" type="text" /><button
+      onclick="getData()"
+    >
+      click
+    </button>
+    <ul id="list">
+      <li></li>
+    </ul>
+  </body>
+  <script>
+    getData = () => {
+      let value = document.getElementById("airport").value;
+
+      fetch(`http://localhost:8000/API/fly/${value}`)
+        .then((res) => res.json())
+        .then((data) => {
+          let li = "";
+          data.flyData.forEach((element) => {
+            li += `<li>name: ${element.name} ,arrive${element.flight_plan.arrival} , departure ${element.flight_plan.departure}</li>`;
+          });
+          document.getElementById("list").innerHTML = li;
+        });
+    };
+  </script>
+</html>
